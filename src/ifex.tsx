@@ -1,14 +1,8 @@
 import { execSync } from 'node:child_process';
 import os from 'node:os';
 import path from 'node:path';
-import {
-  Action,
-  ActionPanel,
-  Detail,
-  getSelectedFinderItems,
-  showToast,
-  Toast,
-} from '@raycast/api';
+import { Action, ActionPanel, Detail, getSelectedFinderItems } from '@raycast/api';
+import { showFailureToast } from '@raycast/utils';
 import { useCallback, useEffect, useState } from 'react';
 
 interface ExifData {
@@ -79,10 +73,11 @@ export default function ViewExifCommand() {
       const filePaths = await getSelectedFilePaths();
 
       if (filePaths.length === 0) {
-        await showToast({
-          style: Toast.Style.Failure,
-          title: 'No files found',
-          message: 'Please select image files in Finder first',
+        await showFailureToast({
+          error: 'Please select image files in Finder first',
+          options: {
+            title: 'No files',
+          },
         });
         setIsLoading(false);
         return;
@@ -91,10 +86,11 @@ export default function ViewExifCommand() {
       const fileExifData = filePaths.map(filePath => processExifFile(filePath, envPath));
       setFiles(fileExifData);
     } catch (error) {
-      await showToast({
-        style: Toast.Style.Failure,
-        title: 'Error loading files',
-        message: error instanceof Error ? error.message : 'Unknown error occurred',
+      await showFailureToast({
+        error: error instanceof Error ? error.message : 'Unknown error occurred',
+        options: {
+          title: 'Error loading data',
+        },
       });
     } finally {
       setIsLoading(false);
