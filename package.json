@@ -18,20 +18,10 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "view-exif",
+      "name": "ifex",
       "title": "View EXIF Data",
       "description": "View EXIF data from files selected in Finder",
-      "mode": "view",
-      "preferences": [
-        {
-          "name": "fallbackPath",
-          "type": "textfield",
-          "required": false,
-          "title": "Fallback Directory",
-          "description": "Directory to scan when no files are selected (optional)",
-          "placeholder": "/path/to/images"
-        }
-      ]
+      "mode": "view"
     }
   ],
   "dependencies": {

@@ -13,15 +13,12 @@ type ExtensionPreferences = {}
 declare type Preferences = ExtensionPreferences
 
 declare namespace Preferences {
-  /** Preferences accessible in the `view-exif` command */
-  export type ViewExif = ExtensionPreferences & {
-  /** Fallback Directory - Directory to scan when no files are selected (optional) */
-  "fallbackPath"?: string
-}
+  /** Preferences accessible in the `ifex` command */
+  export type Ifex = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
-  /** Arguments passed to the `view-exif` command */
-  export type ViewExif = {}
+  /** Arguments passed to the `ifex` command */
+  export type Ifex = {}
 }
 
