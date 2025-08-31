@@ -3,10 +3,17 @@
   "name": "ifex-exif-viewer",
   "title": "IFEX EXIF Viewer",
   "description": "View EXIF data from image files using the ifex CLI tool",
-  "icon": "ifex.png",
+  "icon": "extension-icon.png",
   "author": "danielfilho",
   "categories": [
     "Media"
+  ],
+  "keywords": [
+    "photography",
+    "photo",
+    "exif",
+    "iptc",
+    "metadata"
   ],
   "license": "MIT",
   "commands": [
